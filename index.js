@@ -4,7 +4,7 @@ import stockRoutes from "./routes/routes.js";
 import cors from "cors";
 
 const app = express();
-const PORT = 6969;
+const PORT = process.env.PORT || 6969;
 
 // middleware for the JSON
 app.use(bodyParser.json());
