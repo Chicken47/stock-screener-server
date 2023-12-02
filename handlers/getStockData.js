@@ -49,7 +49,7 @@ const getStockData = async (request, response) => {
 };
 
 const getStockChartAndTables = async (screenerLink) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
   await page.setRequestInterception(true);
 
