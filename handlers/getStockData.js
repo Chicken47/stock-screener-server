@@ -98,7 +98,7 @@ const getStockChartAndTables = async (screenerLink) => {
   });
 
   await page.goto(`https://screener.in${screenerLink}`);
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(2000);
 
   // Get the maximum data for a stock
 

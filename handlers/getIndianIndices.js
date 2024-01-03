@@ -36,6 +36,7 @@ const getIndianIndices = async (screenerLink) => {
 
   // Navigate to the Google Finance page
   await page.goto(`https://www.google.com/finance/quote/${listingName}:NSE`);
+  await page.waitForTimeout(2000);
 
   // Wait for the required elements to be present
   await page.waitForSelector(".lkR3Y");
