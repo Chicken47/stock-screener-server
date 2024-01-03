@@ -52,7 +52,6 @@ const getStockData = async (request, response) => {
 
 const getStockChartAndTables = async (screenerLink) => {
   const browser = await puppeteer.launch({
-    headless: "new",
     args: [
       "--disable-setuid-sandbox",
       "--no-sandbox",
