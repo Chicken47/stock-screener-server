@@ -18,7 +18,7 @@ const getIndianIndices = async (screenerLink) => {
   dotenv.config();
   const browser = await puppeteer.launch({
     headless: "new",
-    args: ["--single-process", "--no-zygote"],
+    args: ["--single-process", "--no-zygote", "--no-sandbox"],
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
