@@ -12,9 +12,9 @@ const searchStock = async (request, response) => {
 
   // call the search API with query string that we recieve from above
   try {
-    const axiosResponse = await axios.get(
-      `https://www.screener.in/api/company/search/?q=${searchQuery}`
-    );
+    const url = `https://www.screener.in/api/company/search/?q=${searchQuery}&v=3&fts=1`;
+    const axiosResponse = await axios.get(url);
+    console.log(url, "url");
     searchResponse = axiosResponse.data;
     response.json(searchResponse);
   } catch (error) {
