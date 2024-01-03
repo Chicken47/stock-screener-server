@@ -1,13 +1,11 @@
 import puppeteer from "puppeteer";
 import getIndianIndices from "./getIndianIndices.js";
-import dotenv from "dotenv";
 
 const getStockData = async (request, response) => {
   if (!request.body.url) {
     response.status(400).json({ error: "Invalid request, missing URL" });
     return;
   }
-  dotenv.config();
 
   const url = request.body.url;
 
@@ -51,18 +49,7 @@ const getStockData = async (request, response) => {
 };
 
 const getStockChartAndTables = async (screenerLink) => {
-  const browser = await puppeteer.launch({
-    args: [
-      "--disable-setuid-sandbox",
-      "--no-sandbox",
-      "--single-process",
-      "--no-zygote",
-    ],
-    executablePath:
-      process.env.NODE_ENV === "production"
-        ? process.env.PUPPETEER_EXECUTABLE_PATH
-        : puppeteer.executablePath(),
-  });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setRequestInterception(true);
 
