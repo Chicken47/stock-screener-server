@@ -53,7 +53,12 @@ const getStockData = async (request, response) => {
 const getStockChartAndTables = async (screenerLink) => {
   const browser = await puppeteer.launch({
     headless: "new",
-    args: ["--single-process", "--no-zygote", "--no-sandbox"],
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+    ],
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
